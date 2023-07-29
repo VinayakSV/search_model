@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autocomplete Text Search</title>
+  <style>
+    /* Reset some default browser styles */
+    body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, figure, hr, fieldset, legend {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+ /* Search Box Container */
+    .container {
+      max-width: 600px;
+      margin: 5% auto;
+      padding: 20px;
+      /* background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    }
+    
+    /* Search Box Container */
+    .search-container {
+      max-width: 600px;
+      margin: 5% auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Search Input */
+    .search-input {
+      width: 95%;
+      padding: 10px 15px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      outline: none;
+    }
+
+    .search-input::placeholder {
+      color: #999;
+    }
+
+    /* Search Button */
+    .search-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #2196F3;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .search-button:hover {
+      background-color: #0d8ddb;
+    }
+
+    /* Autocomplete Dropdown */
+    .autocomplete-content {
+      max-height: 200px;
+      overflow-y: auto;
+      margin-top: auto;
+      padding: 0;
+      list-style: none;
+      /* background-color: #ffffff; */
+      /*border: 1px solid #ccc;*/
+      border-radius: 4px;
+      /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    }
+
+    .autocomplete-content li {
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .autocomplete-content li:hover {
+      background-color: #f0f0f0;
+    }
+    
+    /* Add the highlight class to the selected item */
+        .autocomplete-dropdown li.highlight {
+            background-color: #f0f0f0;
+        }
+        
+    .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+    /* Style for the clear button */
+        .clear-button {
+            position: fixed;
+            right: 32%;
+            top: 60%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #aaa;
+            font-size: 20px;
+            visibility: hidden;
+        }
+
+        .search-container:hover .clear-button {
+            visibility: visible;
+        } 
+        
+  </style>
+</head>
+<body>
+  <div class="container">
+  	<div class="title">Search Movies</div>
+  	<div class="search-container" style="position: relative;">
+    	<input type="text" id="searchInput" class="search-input" placeholder="Happy search">
+    	<!-- Clear button -->
+        <span class="clear-button" id="clearButton">&times;</span>
+        
+        <ul id="autocompleteDropdown" class="autocomplete-content dropdown-content autocomplete-dropdown"></ul>
+    </div>
+    
+  </div>
+
+  <!-- <script src="app.js"></script> -->
+  <script th:src="@{/app.js}"></script>
+</body>
+</html>
